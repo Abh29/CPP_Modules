@@ -45,10 +45,5 @@ void	addContact(PhoneBook *pbook)
 
 void	searchContact(PhoneBook *pbook)
 {
-	int i;
-
-	std::cout << "enter an index :";
-	std::cin >> i;
-
-	pbook->search(i);
+	pbook->showList();
 }

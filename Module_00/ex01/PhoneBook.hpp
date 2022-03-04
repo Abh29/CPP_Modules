@@ -9,7 +9,7 @@
 class PhoneBook
 {
 	private:
-		int 	first;
+		int 	index;
 		int		size;
 		Contact	**contacts;
 		
@@ -18,7 +18,7 @@ class PhoneBook
 		~PhoneBook();
 	
 		void	add(Contact *contact);
-		void	search(int	i);
+		void	showList(void);
 		void	remove(Contact contact);
 
 };
