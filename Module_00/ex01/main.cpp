@@ -1,13 +1,13 @@
 #include "Contact.hpp"
 #include "PhoneBook.hpp"
 
-void addContact(PhoneBook pbook);
-void searchContact(PhoneBook pbook);
+void addContact(PhoneBook *pbook);
+void searchContact(PhoneBook *pbook);
 
 int	main()
 {
 	std::string	cmd;
-	PhoneBook	pbook;
+	PhoneBook	*pbook = new PhoneBook();
 	
 	
 	
@@ -23,9 +23,10 @@ int	main()
 			break;
 		std::cout << std::endl;
 	}
+	delete pbook;
 }
 
-void	addContact(PhoneBook pbook)
+void	addContact(PhoneBook *pbook)
 {
 	std::string fn, ln, nn, pn, ds;
 	std::cout << "enter first name : " ;
@@ -39,15 +40,15 @@ void	addContact(PhoneBook pbook)
 	std::cout << "enter darkest secret : " ;
 	std::cin >> ds;
 
-	pbook.add(new Contact(fn, ln, nn, pn, ds));
+	pbook->add(new Contact(fn, ln, nn, pn, ds));
 }
 
-void	searchContact(PhoneBook pbook)
+void	searchContact(PhoneBook *pbook)
 {
 	int i;
 
 	std::cout << "enter an index :";
 	std::cin >> i;
 
-	pbook.search(i);
+	pbook->search(i);
 }

@@ -11,7 +11,7 @@ class PhoneBook
 	private:
 		int 	first;
 		int		size;
-		Contact	*contacts[NMAX];
+		Contact	**contacts;
 		
 	public:
 		PhoneBook();
