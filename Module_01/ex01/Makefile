@@ -1,0 +1,46 @@
+SRC := Zombie.cpp newZombie.cpp randomChump.cpp  zombieHorde.cpp
+
+SMAIN = main.cpp
+
+CC = c++
+
+FLGS = -Wall -Werror -Wextra -std=c++98 -g
+
+VALGFLGS = --vgdb=full \
+		 --leak-check=full \s
+         --show-leak-kinds=all \
+         --track-origins=yes \
+         --verbose 
+         #--log-file=valgrind-out.txt
+
+HEADERs = Zombie.hpp
+
+OBJ := $(BSRC:%.cpp=%.o)
+
+NAME = zombieHorde
+
+%.o : %.cpp
+	@echo "compiling ..."
+	$(CC) $(FLGS) -c $<
+
+all :$(NAME)
+	
+$(NAME): $(OBJ)
+	@echo "compiling ..."
+	$(CC) $(FLGS) $(SMAIN) $(OBJ) -o $(NAME)
+
+
+clean:
+	@echo "cleaning all objects"
+	@rm -rf *.o
+
+fclean: clean
+	@echo "cleaning every thing ..."
+	@rm -f $(NAME)
+
+re: fclean all
+
+valgrind: $(NAME)
+	@valgrind $(VALGFLGS) ./$(NAME) $(TARGS)
+
+.PHONY: all clean fclean bonus so re test
