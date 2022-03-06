@@ -1,4 +1,5 @@
-SRC := Zombie.cpp newZombie.cpp randomChump.cpp  zombieHorde.cpp
+#first parts 
+SRC := main.cpp
 
 SMAIN = main.cpp
 
@@ -13,11 +14,10 @@ VALGFLGS = --vgdb=full \
          --verbose 
          #--log-file=valgrind-out.txt
 
-HEADERs = Zombie.hpp
 
 OBJ := $(SRC:%.cpp=%.o)
 
-NAME = zombieHorde
+NAME = brain
 
 %.o : %.cpp
 	@echo "compiling ..."
@@ -27,7 +27,7 @@ all :$(NAME)
 	
 $(NAME): $(OBJ)
 	@echo "compiling ..."
-	$(CC) $(FLGS) $(SMAIN) $(OBJ) -o $(NAME)
+	$(CC) $(FLGS)  $(OBJ) -o $(NAME)
 
 
 clean:
@@ -44,3 +44,5 @@ valgrind: $(NAME)
 	@valgrind $(VALGFLGS) ./$(NAME) $(TARGS)
 
 .PHONY: all clean fclean bonus so re test
+
+#&.c : &.o libft.a 

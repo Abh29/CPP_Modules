@@ -2,6 +2,9 @@
 
 int main()
 {
-	std::cout << "hello from main !\n";
+	Zombie A = Zombie("zombie A");
+	Zombie *B = newZombie("zombie B");
+	randomChump("zombie C");
+	delete B;
 	return 0;
 }

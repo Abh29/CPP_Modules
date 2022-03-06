@@ -1,32 +1,34 @@
 #first parts 
-SRC :=	main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
+SRC := Zombie.cpp newZombie.cpp randomChump.cpp
 
-#bonnus 
-BSRC :=	$(SRC)
+SMAIN = main.cpp
 
 CC = c++
 
 FLGS = -Wall -Werror -Wextra -std=c++98 -g
 
 VALGFLGS = --vgdb=full \
-		 --leak-check=full \
+		 --leak-check=full \s
          --show-leak-kinds=all \
          --track-origins=yes \
          --verbose 
          #--log-file=valgrind-out.txt
 
-
 HEADERs = Zombie.hpp
 
+OBJ := $(SRC:%.cpp=%.o)
 
 NAME = zombie
 
+%.o : %.cpp
+	@echo "compiling ..."
+	$(CC) $(FLGS) -c $<
 
 all :$(NAME)
 	
-$(NAME): $(SRC) $(HEADER)
+$(NAME): $(OBJ)
 	@echo "compiling ..."
-	@$(CC) $(FLGS)  $(FBSIZE) $(SRC) -o $(NAME)
+	$(CC) $(FLGS) main.cpp $(OBJ) -o $(NAME)
 
 
 clean:
@@ -39,10 +41,8 @@ fclean: clean
 
 re: fclean all
 
-
 valgrind: $(NAME)
 	@valgrind $(VALGFLGS) ./$(NAME) $(TARGS)
-
 
 .PHONY: all clean fclean bonus so re test
 

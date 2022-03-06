@@ -2,9 +2,14 @@
 
 int main()
 {
-	Zombie A = Zombie("zombie A");
-	Zombie *B = A.newZombie("zombie B");
-	A.randomChump("zombie C");
-	delete B;
+	int	N = 5;
+	Zombie *a = new Zombie("zombie a");
+	Zombie *zombies = zombieHorde(N, "horde");
+
+	for (int i = 0; i < N; i++)
+		zombies[i].announce();
+	
+	delete a;
+	delete[] zombies;
 	return 0;
 }
