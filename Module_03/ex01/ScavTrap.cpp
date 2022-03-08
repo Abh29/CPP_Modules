@@ -2,11 +2,13 @@
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name) {
 	std::cout << "ScavTrap " << name << " constructed" << std::endl;
-	this->setDamage(20);
-	this->setEnergyPoints(50);
-	this->setHitPoints(100);
+	damage = 20;
+	energyPoints = 50;
+	hitPoints = 100;
 }
+
 ScavTrap::ScavTrap(const ScavTrap& s) : ClapTrap(s){}
+
 ScavTrap& ScavTrap::operator= (const ScavTrap& s) {
 	ClapTrap::operator= (s);
 	return (*this);
@@ -15,7 +17,6 @@ ScavTrap& ScavTrap::operator= (const ScavTrap& s) {
 ScavTrap::~ScavTrap(){
 	std::cout << "ScavTrap " << this->getName() << " is destructed !" << std::endl;
 }
-
 
 void ScavTrap::attack(const std::string& target){
 	if (this->getEnergyPoints() <= 0 || this->getHitPoints() <= 0)
@@ -38,7 +39,6 @@ void ScavTrap::beRepaired(unsigned int amount){
 	std::cout << "ScavTrap " << this->getName() << " is being repaired" << std::endl;
 	this->setHitPoints( this->getHitPoints() + amount);
 }
-
 
 void	ScavTrap::guardGate(){
 	std::cout << "ScavTrap " << this->getName() << " is now in Gate keeper mode" << std::endl;

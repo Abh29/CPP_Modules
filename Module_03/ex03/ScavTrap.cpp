@@ -2,15 +2,17 @@
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name) {
 	std::cout << "ScavTrap " << name << " constructed" << std::endl;
-	this->setDamage(20);
-	this->setEnergyPoints(50);
-	this->setHitPoints(100);
+	damage = 20;
+	energyPoints = 50;
+	hitPoints = 100;
 }
+
 ScavTrap::ScavTrap(): ClapTrap("name") {
 	std::cout << "ScavTrap " << this->ClapTrap::getName() << " constructed" << std::endl;
 }
 
 ScavTrap::ScavTrap(const ScavTrap& s) : ClapTrap(s){}
+
 ScavTrap& ScavTrap::operator= (const ScavTrap& s) {
 	ClapTrap::operator= (s);
 	return (*this);

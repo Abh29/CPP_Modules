@@ -6,6 +6,9 @@ DimondTrap::DimondTrap(std::string name) : ClapTrap(name + "_clap_name"),
 {
 	std::cout << "DimondTrap " << name << " constructed" << std::endl;
 	this->name = name;
+	this->damage = FragTrap::damage;
+	this->energyPoints = ScavTrap::energyPoints;
+	this->hitPoints = ScavTrap::hitPoints;
 }
 DimondTrap::DimondTrap(const DimondTrap& s) : ClapTrap(s), ScavTrap(s), FragTrap(s) {
 	this->name = std::string(s.name);
@@ -20,7 +23,6 @@ DimondTrap& DimondTrap::operator= (const DimondTrap& s) {
 DimondTrap::~DimondTrap(){
 	std::cout << "DimondTrap " << name << " is destructed !" << std::endl;
 }
-
 
 void DimondTrap::attack(const std::string& target){
 	ScavTrap::attack(target);
