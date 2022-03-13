@@ -1,5 +1,7 @@
 #include "Contact.hpp"
 
+Contact::Contact(){}
+
 Contact::Contact(std::string firstName,
 				std::string lastName, 
 				std::string nickName,
@@ -61,9 +63,9 @@ std::string	Contact::toString(void)
 	std::string out;
 
 	out = "first_name = " + getFirstName() + 
-		  ", last_name = " + getLastName() +
-		  ", nick_name = " + getNickName() +
-		  ", phone_number = " + getPhoneNumber()+
-		  ", darkest_secret = " + getDarkestSecret();
+		  "\nlast_name = " + getLastName() +
+		  "\nnick_name = " + getNickName() +
+		  "\nphone_number = " + getPhoneNumber()+
+		  "\ndarkest_secret = " + getDarkestSecret();
 	return (out);
 }

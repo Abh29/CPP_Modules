@@ -1,9 +1,6 @@
 #first parts 
 SRC :=	main.cpp PhoneBook.cpp Contact.cpp
 
-#bonnus 
-BSRC :=	$(SRC)
-
 CC = c++
 
 FLGS = -Wall -Werror -Wextra -std=c++98 -g
@@ -15,18 +12,20 @@ VALGFLGS = --vgdb=full \
          --verbose 
          #--log-file=valgrind-out.txt
 
-
-HEADERs = PhoneBook.hpp Contact.hpp
-
+HEADERs = Megaphone.hpp PhoneBook.hpp
+OBJ := $(SRC:%.cpp=%.o)
 
 NAME = phoneBook
 
+%.o : %.cpp
+	@echo "compiling ..."
+	$(CC) $(FLGS) -c $<
 
 all :$(NAME)
 	
-$(NAME): $(SRC) $(HEADER)
+$(NAME): $(OBJ)
 	@echo "compiling ..."
-	@$(CC) $(FLGS)  $(FBSIZE) $(SRC) -o $(NAME)
+	$(CC) $(FLGS) $(OBJ) -o $(NAME)
 
 
 clean:
@@ -39,10 +38,8 @@ fclean: clean
 
 re: fclean all
 
-
 valgrind: $(NAME)
 	@valgrind $(VALGFLGS) ./$(NAME) $(TARGS)
-
 
 .PHONY: all clean fclean bonus so re test
 

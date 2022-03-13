@@ -1,32 +1,31 @@
 #first parts 
-SRC :=	megaphone.cpp Megaphone.cpp
-
-#bonnus 
-BSRC :=	$(SRC)
+SRC := megaphone.cpp MegaphoneClass.cpp
 
 CC = c++
 
-FLGS = -Wall -Werror -Wextra -std=c++98
+FLGS = -Wall -Werror -Wextra -std=c++98 -g
 
 VALGFLGS = --vgdb=full \
 		 --leak-check=full \
          --show-leak-kinds=all \
          --track-origins=yes \
-         --verbose \
-         --log-file=valgrind-out.txt
+         --verbose 
+         #--log-file=valgrind-out.txt
 
-
-HEADERs = megaphone.hpp
-
+HEADERs = Megaphone.hpp
+OBJ := $(SRC:%.cpp=%.o)
 
 NAME = megaphone
 
+%.o : %.cpp
+	@echo "compiling ..."
+	$(CC) $(FLGS) -c $<
 
 all :$(NAME)
 	
-$(NAME): $(SRC) $(HEADER)
+$(NAME): $(OBJ)
 	@echo "compiling ..."
-	@$(CC) $(FLGS)  $(FBSIZE) $(SRC) -o $(NAME)
+	$(CC) $(FLGS) $(OBJ) -o $(NAME)
 
 
 clean:
@@ -39,15 +38,8 @@ fclean: clean
 
 re: fclean all
 
-
-debug: $(SRC) $(HEADER)
-	@make debug -C libft/
-	@echo "compiling with -g ..."
-	@$(CC) -g $(FBSIZE) $(SRC) -o $(NAME)
-
 valgrind: $(NAME)
 	@valgrind $(VALGFLGS) ./$(NAME) $(TARGS)
-
 
 .PHONY: all clean fclean bonus so re test
 

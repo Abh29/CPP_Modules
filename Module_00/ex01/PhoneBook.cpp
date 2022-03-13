@@ -2,32 +2,15 @@
 #include <stdio.h>
 
 PhoneBook::PhoneBook(){
-	int i;
-
 	index = 0;
 	size = 0;
-	contacts = new Contact*[NMAX];
-	i = 0;
-	while (i < NMAX)
-		contacts[i++] = NULL;
-};
-PhoneBook::~PhoneBook(){
-	int	i;
-
-	i = 0;
-	while (i < NMAX)
-	{
-		if (contacts[i])
-			delete contacts[i];
-		i++;
-	}
-	delete[] contacts;
 };
 
-void	PhoneBook::add(Contact *contact)
+PhoneBook::~PhoneBook(){};
+
+
+void	PhoneBook::add(Contact contact)
 {
-	if (contacts[index])
-		delete contacts[index];
 	contacts[index] = contact;
 	if (size < NMAX)
 		size++;
@@ -50,10 +33,17 @@ void	PhoneBook::showList(void)
 	while (i < size)
 	{
 		std::cout << std::setw(10) << i << "|";
-		print_in_format(contacts[i]->getFirstName());
-		print_in_format(contacts[i]->getLastName());
-		print_in_format(contacts[i]->getNickName());
+		print_in_format(contacts[i].getFirstName());
+		print_in_format(contacts[i].getLastName());
+		print_in_format(contacts[i].getNickName());
 		std::cout << std::endl;
 		i++;
 	}
+
+	std::cout << "Enter an index : " ;
+	std::cin >> i;
+	if (i >= size || i < 0 )
+		std::cout << "out of range index !!!" << std::endl;
+	else
+		std::cout << contacts[i].toString() << std::endl;
 }

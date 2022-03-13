@@ -1,9 +1,9 @@
 #include "Account.hpp"
 
-int	Account::_nbAccounts;
-int Account::_totalAmount;
-int Account::_totalNbDeposits;
-int Account::_totalNbWithdrawals;
+int	Account::_nbAccounts = 0;
+int Account::_totalAmount = 0;
+int Account::_totalNbDeposits = 0;
+int Account::_totalNbWithdrawals = 0;
 
 int	Account::getNbAccounts(void){return _nbAccounts;};
 int	Account::getTotalAmount( void ){return _totalAmount;}
@@ -20,6 +20,8 @@ Account::Account( int initial_deposit ){
 	_amount = initial_deposit;
 	_accountIndex = _nbAccounts;
 	_totalAmount += initial_deposit;
+	_nbWithdrawals = 0;
+	_nbDeposits = 0;
 	_nbAccounts++;
 	_displayTimestamp();
 	std::cout << "index:" << this->_accountIndex << ";amount:";
@@ -28,6 +30,8 @@ Account::Account( int initial_deposit ){
 Account::Account(){
 	_amount = 0;
 	_accountIndex = _nbAccounts;
+	_nbWithdrawals = 0;
+	_nbDeposits = 0;
 	_nbAccounts++;
 	_displayTimestamp();
 	std::cout << "index:" << this->_accountIndex << ";amount:";
@@ -38,6 +42,7 @@ Account::~Account( void ){
 	std::cout << "index:" << _accountIndex ;
 	std::cout << ";amount:" << _amount;
 	std::cout << ";closed" << std::endl;
+	_nbAccounts--;
 }
 
 void	Account::makeDeposit( int deposit ){

@@ -7,15 +7,15 @@
 class Megaphone
 {
 	private:
-		std::string	no_param;
+		std::string	default_param;
 
 	public:
-		Megaphone(std::string no_param);
+		Megaphone(std::string default_param);
 		~Megaphone();
 
 		void shoutNoArgs(void);
 		void shoutArgs(int argc, char *argv[]);
-		void setNoParam(std::string no_param);
+		void setDefaultParam(std::string default_param);
 
 	private:
 		void shout(std::string str);

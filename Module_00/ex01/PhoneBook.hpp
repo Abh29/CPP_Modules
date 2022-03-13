@@ -11,13 +11,13 @@ class PhoneBook
 	private:
 		int 	index;
 		int		size;
-		Contact	**contacts;
+		Contact	contacts[NMAX];
 		
 	public:
 		PhoneBook();
 		~PhoneBook();
 	
-		void	add(Contact *contact);
+		void	add(Contact contact);
 		void	showList(void);
 		void	remove(Contact contact);
 

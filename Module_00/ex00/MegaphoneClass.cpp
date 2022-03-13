@@ -1,9 +1,9 @@
 #include "Megaphone.hpp"
 
 // constructor
-Megaphone::Megaphone(std::string no_param)
+Megaphone::Megaphone(std::string default_param)
 {
-    setNoParam(no_param);
+    setDefaultParam(default_param);
 }
 
 Megaphone::~Megaphone(){}
@@ -11,7 +11,7 @@ Megaphone::~Megaphone(){}
 // member functions
 void Megaphone::shoutNoArgs(void)
 {
-	shout(no_param);
+	shout(default_param);
 	std::cout << "\n";
 }
 
@@ -41,7 +41,7 @@ void Megaphone::shoutArgs(int argc, char *argv[])
 	std::cout << "\n";
 }
 
-void Megaphone::setNoParam(std::string no_param)
+void Megaphone::setDefaultParam(std::string default_param)
 {
-	this->no_param = no_param;
+	this->default_param = default_param;
 }
