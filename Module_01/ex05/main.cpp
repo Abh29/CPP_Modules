@@ -1,7 +1,10 @@
-#include "Karen.hpp"
+#include "Harl.hpp"
 
 int main(){
-	Karen k = Karen();
+	Harl k = Harl();
 
-	k.complain("DEBUG");
+	std::string cmd;
+	std::cout << "put Harl do : ";
+	std::cin >> cmd; 
+	k.complain(cmd);
 }
