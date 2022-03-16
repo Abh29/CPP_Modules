@@ -1,5 +1,5 @@
 #first parts 
-SRC := main.cpp Bureaucrat.cpp Form.cpp
+SRC := main.cpp Bureaucrat.cpp Form.cpp PresidentialPardonForm.cpp RobotomyRequest.cpp ShrubberyCreationForm.cpp
 
 CC = c++
 
