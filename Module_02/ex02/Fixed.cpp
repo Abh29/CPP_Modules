@@ -33,7 +33,7 @@ void	Fixed::setRawBits(int const raw) {number = raw;}
 
 float	Fixed::toFloat( void ) const {
 	return ((float) number / 256);
-}
+} 
 
 int		Fixed::toInt( void ) const {
 	return (number / 256);
