@@ -1,6 +1,6 @@
 #include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm() : Form("PresidentialPardonForm", 25, 5) {}
+PresidentialPardonForm::PresidentialPardonForm(std::string target) : Form("PresidentialPardonForm", 25, 5) {this->target = target;}
 
 PresidentialPardonForm::PresidentialPardonForm(const std::string &target) : Form("PresidentialPardonForm", 145, 137), target(target){}
 

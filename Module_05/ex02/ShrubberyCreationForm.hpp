@@ -17,8 +17,8 @@ private:
 	std::string target;
 public:
 
-	ShrubberyCreationForm();
-	virtual ~ShrubberyCreationForm(){};
+	ShrubberyCreationForm(std::string target);
+	virtual ~ShrubberyCreationForm();
 	ShrubberyCreationForm(const ShrubberyCreationForm &other);
 	ShrubberyCreationForm(const std::string &target);
 	ShrubberyCreationForm & operator=(const ShrubberyCreationForm &other);

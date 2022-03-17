@@ -44,6 +44,11 @@ public:
 	Bureaucrat  operator --();
 	Bureaucrat  operator ++(int);
 	Bureaucrat  operator --(int);
+
+	const std::string 	getName() const;
+	int					getGrade() const;
+	void				increment();
+	void				decrement();
 };
 
 #endif

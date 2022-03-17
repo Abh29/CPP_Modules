@@ -75,6 +75,13 @@
 		std::cout << b.getName() << " couldn't sign " << f.getName() << " because : " << reason << std::endl;
 	}
 
+	void putExucutionError(Bureaucrat &b, Form &f, std::string reason)
+	{
+		std::cout << b.getName() << " couldn't execute " << f.getName() << " because : " << reason << std::endl;
+	}
+
+	
+
 	void Bureaucrat::signForm(Form &f){
 		if (f.getIsSigned())
 			putReason(*this, f, " is already signed !");
@@ -88,6 +95,23 @@
 			catch (std::exception &e)
 			{
 				putReason(*this, f, e.what());
+			}
+		}
+	}
+
+		void Bureaucrat::executeForm(Form &f){
+		if (!f.getIsSigned())
+			putReason(*this, f, " is not signed !");
+		else
+		{
+			try
+			{
+				f.beExecuted(*this);
+				std::cout << this->name << " executes " << f.getName() << "\n";
+			}
+			catch (std::exception &e)
+			{
+				putExucutionError(*this, f, e.what());
 			}
 		}
 	}

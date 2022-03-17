@@ -49,6 +49,7 @@ public:
 	Bureaucrat  operator --(int);
 
 	void signForm(Form &f);
+	void executeForm(Form &f);
 	std::string getName() const;
 	int	getGrade() const;
 };

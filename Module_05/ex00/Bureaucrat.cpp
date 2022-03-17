@@ -66,3 +66,17 @@
 		os << b.name << ", bureaucrat grade " << b.grade;
 		return (os);
 	}
+
+	const std::string 	Bureaucrat::getName() const {return name;}
+	int					Bureaucrat::getGrade() const{return grade;}
+	
+	void				Bureaucrat::increment() {
+		if (this->grade == 1)
+			throw Bureaucrat::GradeTooHighException("you can increment the highest grade !");
+		grade--;
+	}
+	void				Bureaucrat::decrement() {
+		if (this->grade == 150)
+			throw Bureaucrat::GradeTooLowException("you can decrement the lowest grade !");
+		grade++;
+	}

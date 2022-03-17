@@ -6,6 +6,8 @@
 #include "AMateria.hpp"
 #include <iostream>
 
+class AMateria;
+
 class Character : ICharacter
 {
 private:

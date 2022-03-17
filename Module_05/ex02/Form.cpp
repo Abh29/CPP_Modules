@@ -25,11 +25,16 @@
 
 	Form::GradeTooHighException::GradeTooHighException(const std::string &msg) : _msg(msg){}
 	Form::GradeTooLowException::GradeTooLowException(const std::string& msg) : _msg(msg){}
+	Form::FormNotSignedExeption::FormNotSignedExeption(const std::string& msg) : _msg(msg){}
+
 	const char* Form::GradeTooHighException::what() const throw() {return _msg.c_str();}
 	const char* Form::GradeTooLowException::what() const throw() {return _msg.c_str();}
+	const char* Form::FormNotSignedExeption::what() const throw() {return _msg.c_str();}
+
 
 	Form::GradeTooHighException::~GradeTooHighException() throw (){}
 	Form::GradeTooLowException::~GradeTooLowException() throw(){}
+	Form::FormNotSignedExeption::~FormNotSignedExeption() throw(){}
 
 	std::ostream& operator <<(std::ostream &os, Form const &f)
 	{
@@ -43,8 +48,18 @@
 	{
 		if (b.getGrade() > this->sign_grade)
 			throw Form::GradeTooLowException("bureaucrate grade is lower than required by the form!");
-		b.signForm(*this);
 	}
+
+	void 	Form::beExecuted(Bureaucrat &b)
+	{
+		if (!_isSigned)
+			throw Form::FormNotSignedExeption("bureaucrat can't execute a non signed form !");
+		if (b.getGrade() > this->execute_grade)
+			throw Form::GradeTooLowException("bureaucrate grade is lower than required by the form!");
+	}
+
+
+
 
 	void				Form::setIsSigned(bool b){_isSigned = b;}
 	std::string const	Form::getName() const {return name;}
