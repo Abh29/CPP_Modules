@@ -3,14 +3,19 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 
 int main()
 {
 	std::cout << "starting "<< std::endl;
+	Intern intern;
 
-	ShrubberyCreationForm	a1("tree.txt");
-	RobotomyRequestForm		a2("RF1");
-	PresidentialPardonForm	a3("President1");
+	Form &a1 = *intern.makeForm("shrubbery creation", "tree.txt");
+	Form &a2 = *intern.makeForm("robotomy request", "Bender");
+	Form &a3 = *intern.makeForm("presidential pardon", "president1");
+	Form &a4 = *intern.makeForm("someForm", "someName");
+
+	(void)a4;
 
 	Bureaucrat 				b1("Albert", 150);
 	Bureaucrat 				b2("James", 140);

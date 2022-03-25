@@ -1,5 +1,5 @@
 #first parts 
-SRC := main.cpp ClapTrap.cpp FragTrap.cpp ScavTrap.cpp DimondTrap.cpp
+SRC := main.cpp ClapTrap.cpp FragTrap.cpp ScavTrap.cpp DiamondTrap.cpp
 
 CC = c++
 
@@ -12,7 +12,7 @@ VALGFLGS = --vgdb=full \
          --verbose 
          #--log-file=valgrind-out.txt
 
-HEADERs = ClapTrap.hpp FragTrap.hpp ScavTrap.hpp DimondTrap.hpp
+HEADERs = ClapTrap.hpp FragTrap.hpp ScavTrap.hpp DiamondTrap.hpp
 
 OBJ := $(SRC:%.cpp=%.o)
 

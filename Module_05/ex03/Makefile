@@ -1,5 +1,6 @@
 #first parts 
-SRC := main.cpp Bureaucrat.cpp Form.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp ShrubberyCreationForm.cpp
+SRC := main.cpp Bureaucrat.cpp Form.cpp PresidentialPardonForm.cpp \
+		 RobotomyRequestForm.cpp ShrubberyCreationForm.cpp Intern.cpp
 
 CC = c++
 
@@ -12,11 +13,11 @@ VALGFLGS = --vgdb=full \
          --verbose 
          #--log-file=valgrind-out.txt
 
-HEADERs = Bureaucrat.hpp Form.hpp
+HEADERs = Bureaucrat.hpp Form.hpp intern.hpp
 
 OBJ := $(SRC:%.cpp=%.o)
 
-NAME = forms
+NAME = intern
 
 %.o : %.cpp
 	@echo "compiling ..."
