@@ -14,8 +14,8 @@ private:
 public:
 	Array();
 	Array(int n);
-	Array(const Array &a);
-	Array& operator= (const Array &a);
+	Array(Array &a);
+	Array& operator= (Array &a);
 	virtual ~Array();
 
 	int		size(void) const;
@@ -40,7 +40,7 @@ Array<T>::Array(int n)
 }
 
 template<typename T>
-Array<T>::Array(const Array &a){
+Array<T>::Array(Array &a){
 	_size = a.size();
 	elms = new T[_size];
 	for (int i = 0; i < _size; i++)
@@ -48,7 +48,7 @@ Array<T>::Array(const Array &a){
 }
 
 template<typename T>
-Array<T>&	Array<T>::operator= (const Array<T> &a){
+Array<T>&	Array<T>::operator= (Array<T> &a){
 	if (this != a)
 	{
 		if (elms)
