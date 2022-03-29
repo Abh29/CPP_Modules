@@ -16,7 +16,7 @@ HEADERs = ClapTrap.hpp ScavTrap.hpp
 
 OBJ := $(SRC:%.cpp=%.o)
 
-NAME = trap
+NAME = scavTrap
 
 %.o : %.cpp
 	@echo "compiling ..."

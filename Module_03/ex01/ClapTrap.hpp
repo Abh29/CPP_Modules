@@ -9,10 +9,11 @@ class ClapTrap
 protected:
 	std::string name;
 	int hitPoints;
-	int damage;
+	int attack_damage;
 	int energyPoints;
 
 public:
+	ClapTrap(void);
 	ClapTrap(std::string name);
 	ClapTrap(const ClapTrap& c);
 	ClapTrap& operator= (const ClapTrap& c);
@@ -28,8 +29,8 @@ public:
 	void setName(std::string name);
 	int getHitPoints();
 	void setHitPoints(int hitPoints);
-	int getDamage();
-	void setDamage(int damage);
+	int getAttackDamage();
+	void setAttackDamage(int AttackDamage);
 	int getEnergyPoints();
 	void setEnergyPoints(int energyPoints);
 

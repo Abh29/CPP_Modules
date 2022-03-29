@@ -10,6 +10,7 @@ class FragTrap : public ClapTrap
 private:
 
 public:
+	FragTrap(void);
 	FragTrap(std::string name);
 	FragTrap(const FragTrap& s);
 	FragTrap& operator= (const FragTrap& s);

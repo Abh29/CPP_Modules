@@ -16,7 +16,7 @@ HEADERs = ClapTrap.hpp FragTrap.hpp ScavTrap.hpp DiamondTrap.hpp
 
 OBJ := $(SRC:%.cpp=%.o)
 
-NAME = trap
+NAME = diamondTrap
 
 %.o : %.cpp
 	@echo "compiling ..."

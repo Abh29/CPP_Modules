@@ -13,6 +13,7 @@ private:
 	std::string name;
 	
 public:
+	DiamondTrap(void);
 	DiamondTrap(std::string name);
 	DiamondTrap(const DiamondTrap& s);
 	DiamondTrap& operator= (const DiamondTrap& s);

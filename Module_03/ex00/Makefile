@@ -1,5 +1,5 @@
 #first parts 
-SRC := main.cpp ClapTrap.cpp test.cpp
+SRC := main.cpp ClapTrap.cpp
 
 CC = c++
 
@@ -16,7 +16,7 @@ HEADERs = ClapTrap.hpp
 
 OBJ := $(SRC:%.cpp=%.o)
 
-NAME = trap
+NAME = clapTrap
 
 %.o : %.cpp
 	@echo "compiling ..."

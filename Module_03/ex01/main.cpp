@@ -1,7 +1,7 @@
 #include "ScavTrap.hpp"
 
 int main(){
-	ScavTrap *a = new ScavTrap("first trap");
+	ScavTrap *a = new ScavTrap("ScavRobot");
 	
 	a->attack("enemy_name");
 	a->takeDamage(15);

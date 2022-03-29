@@ -1,18 +1,21 @@
 #include "ClapTrap.hpp"
-#include "test.hpp"
 
 int main(){
-	ClapTrap *a = new ClapTrap("first trap");
-	
-	C *c = new C(5);
+	ClapTrap *a = new ClapTrap("robot1");
+	ClapTrap b("robot2");
 
-	delete c;
+	ClapTrap c(b);
+	c.attack("c enemy");
 
-	a->attack("enemy_name");
+	ClapTrap d;
+	d = c;
+	d.takeDamage(5);
+
+	a->attack("robot_enemy");
 	a->takeDamage(15);
-	a->attack("enemy_name");
+	a->attack("robot_enemy");
 	a->beRepaired(6);
-	a->attack("enemy_name");
+	a->attack("robot_enemy");
 
 	delete a;
 }

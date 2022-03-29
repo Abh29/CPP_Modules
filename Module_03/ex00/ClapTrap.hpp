@@ -9,11 +9,12 @@ class ClapTrap
 private:
 	std::string name;
 	int	hitPoints;
-	int damage;
+	int attack_damage;
 	int energyPoints;
 
 
 public:
+	ClapTrap(void);
 	ClapTrap(std::string name);
 	ClapTrap(const ClapTrap& c);
 	ClapTrap& operator= (const ClapTrap& c);

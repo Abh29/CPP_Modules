@@ -1,7 +1,7 @@
 #include "FragTrap.hpp"
 
 int main(){
-	FragTrap *a = new FragTrap("first trap");
+	FragTrap *a = new FragTrap("FragRobot");
 	
 	a->attack("enemy_name");
 	a->takeDamage(15);
