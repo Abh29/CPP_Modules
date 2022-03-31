@@ -1,8 +1,12 @@
 #include "Cat.hpp"
 
 Cat::Cat() : Animal("Cat"){std::cout << "Cat constructor" << std::endl;}
-Cat::Cat(const Cat& a){ this->type = std::string(a.type);}
+Cat::Cat(const Cat& a){ 
+	std::cout << "Cat copy constructor" << std::endl;
+	this->type = std::string(a.type);
+}
 Cat& Cat::operator= (const Cat& a) {
+	std::cout << "Cat operator=" << std::endl;
 	this->type = std::string(a.type);
 	return (*this);
 }

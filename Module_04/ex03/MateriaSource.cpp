@@ -22,6 +22,7 @@ MateriaSource& MateriaSource::operator= (const MateriaSource& m){
 			materias[i] = m.materias[i]->clone();
 		else
 			materias[i] = NULL; 
+	return (*this);
 }
 
 MateriaSource::~MateriaSource(){

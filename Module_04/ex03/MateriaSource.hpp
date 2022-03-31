@@ -6,6 +6,8 @@
 #include "IMateriaSource.hpp"
 #include <iostream>
 
+class AMateria;
+
 class MateriaSource : public IMateriaSource
 {
 private:
@@ -15,18 +17,11 @@ public:
 	MateriaSource();
 	MateriaSource(const MateriaSource& m);
 	MateriaSource& operator= (const MateriaSource& m);
-	~MateriaSource() {}
+	~MateriaSource();
 
 
 	void learnMateria(AMateria*);
 	AMateria* createMateria(std::string const & type);
 };
-
-/*
-createMateria(std::string const &)
-Returns a new Materia. The latter is a copy of the Materia previously learned by
-the MateriaSource whose type equals the one passed as parameter. Returns 0 if
-the type is unknown.
-*/
 
 #endif

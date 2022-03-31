@@ -6,6 +6,12 @@
 
 int main()
 {
+	//Animal *error = new Animal("this shouldn't work");
+
+	std::cout << "_________________________" << std::endl;
+	std::cout << "____Animals Array _______" << std::endl;
+	std::cout << "_________________________" << std::endl;
+
 	Animal **animals = new Animal*[10];
 
 	for (int i = 0; i < 5; i++)
@@ -14,27 +20,38 @@ int main()
 		animals[i] = new Dog();
 	
 
-	Animal *a = new Dog();
-	Dog b;
+	getchar();
 
-	a->getType();
-	b.getType();
+	std::cout << "_________________________" << std::endl;
+	std::cout << "____cat coppy ___________" << std::endl;
+	std::cout << "_________________________" << std::endl;
 
-	Cat *catcpy =  new Cat(*((Cat *)animals[0]));
+	Cat *catcpy =  new Cat(* dynamic_cast<Cat *>(animals[0]));
 	
 	catcpy->makeSound();
 	animals[0]->makeSound();
-	std::cout << "something \n\n\n" << std::endl;
 
+
+	getchar();
+
+	std::cout << "_________________________" << std::endl;
+	std::cout << "____delete animals_______" << std::endl;
+	std::cout << "_________________________" << std::endl;
 
 
 	for (int i = 0; i < 10; i++)
 		delete animals[i];
 	delete[] animals;
 
+	getchar();
+
+	std::cout << "_________________________" << std::endl;
+	std::cout << "____cat coppy ___________" << std::endl;
+	std::cout << "_________________________" << std::endl;
+
 	std::cout << catcpy->getType() << std::endl;
 	catcpy->makeSound();
 
-	delete catcpy;
+	delete catcpy;	
 	return 0;
 }

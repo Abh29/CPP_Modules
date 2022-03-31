@@ -1,11 +1,19 @@
 #include "Character.hpp"
 
+Character::Character(){
+	this->name = "default character";
+	enventory = new AMateria*[4];
+	for (int i = 0; i < 4; i++)
+		enventory[i] = NULL;
+}
+
 Character::Character(std::string name){
 	this->name = name;
 	enventory = new AMateria*[4];
 	for (int i = 0; i < 4; i++)
 		enventory[i] = NULL;
 }
+
 Character::Character(const Character& c){
 	this->name = c.name;
 	enventory = new AMateria*[4];
@@ -51,7 +59,7 @@ void	Character::unequip(int idx){
 	enventory[idx] = NULL;
 }
 
-void	Character::use(int idx, Character& target){
+void	Character::use(int idx, ICharacter& target){
 	if (idx < 0 || idx > 3)
 		return;
 	if (enventory[idx] == NULL)

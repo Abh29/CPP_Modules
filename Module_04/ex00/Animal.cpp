@@ -1,11 +1,21 @@
 #include "Animal.hpp"
 
-Animal::Animal(){this->type = "animal";
-std::cout << "Animal constructor" << std::endl;}
+Animal::Animal(){
+	this->type = "animal";
+	std::cout << "Animal constructor" << std::endl;
+}
+
 Animal::Animal(std::string type){this->type = type;
-	std::cout << "Animal constructor" << std::endl;}
-Animal::Animal(const Animal& a){ this->type = std::string(a.type);}
+	std::cout << "Animal constructor" << std::endl;
+}
+
+Animal::Animal(const Animal& a){ 
+	std::cout << "Animal copy constructor" << std::endl;
+	this->type = std::string(a.type);
+}
+
 Animal& Animal::operator= (const Animal& a) {
+	std::cout << "Animal operator=" << std::endl;
 	this->type = std::string(a.type);
 	return (*this);
 }
