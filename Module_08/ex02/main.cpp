@@ -1,59 +1,58 @@
 #include <iostream>
-#include "span.hpp"
+#include "MutantStack.hpp"
+#include <list>
 
-int main ()
+int main()
 {
-    Span span = Span(6);
-    span.addNumber(-2);
-    span.addNumber(13);
-    span.addNumber(7);
-    span.addNumber(-9);
-    span.addNumber(11);
-	span.addNumber(6);
 
-    std::cout << "shortestSpan: " << span.shortestSpan() << std::endl;
-    std::cout << "longestSpan: " << span.longestSpan() << std::endl;
-	
-	try
+	std::cout << "--------------------------" << std::endl;
+	std::cout << "-------MutantStack--------" << std::endl;
+	std::cout << "--------------------------" << std::endl;
+
+	MutantStack<int> mstack;
+	mstack.push(5);
+	mstack.push(17);
+	std::cout << mstack.top() << std::endl;
+	mstack.pop();
+	std::cout << mstack.size() << std::endl;
+	mstack.push(3);
+	mstack.push(5);
+	mstack.push(737);
+	mstack.push(0);
+	MutantStack<int>::iterator it = mstack.begin();
+	MutantStack<int>::iterator ite = mstack.end();
+	++it;
+	--it;
+	while (it != ite)
 	{
-		span.addNumber(13);
+		std::cout << *it << std::endl;
+		++it;
 	}
-	catch(const std::exception& e)
+	std::stack<int> s(mstack);
+	
+	std::cout << "--------------------------" << std::endl;
+	std::cout << "---------std::list--------" << std::endl;
+	std::cout << "--------------------------" << std::endl;
+
+	std::list<int> lis;
+	lis.push_back(5);
+	lis.push_back(17); 
+	std::cout << lis.back() << std::endl;
+	lis.pop_back();
+	std::cout << lis.size() << std::endl;
+	lis.push_back(3);
+	lis.push_back(5);
+	lis.push_back(737);
+	lis.push_back(0);
+	std::list<int>::iterator itlb = lis.begin();
+	std::list<int>::iterator itle = lis.end();
+	++itlb;
+	--itlb;
+	while (itlb != itle)
 	{
-		std::cerr << e.what() << '\n';
-	}
-	
-	std::cout << std::endl;
-
-    Span span2 = Span(100000);
-    for(int i = 0; i < 100000; i++)
-	{
-		span2.addNumber(std::rand() % 1000);
+		std::cout << *itlb << std::endl;
+		++itlb;
 	}
 
-	std::cout << "shortestSpan: " << span2.shortestSpan() << std::endl;
-    std::cout << "longestSpan: " << span2.longestSpan() << std::endl;
-
-    try
-    {
-        Span s(-1);
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << std::endl;
-    }
-	
-    try
-    {
-        Span s(2);
-        s.addNumber(4);
-        std::cout << s.shortestSpan() << std::endl;
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << std::endl;
-    }
-	
 	return 0;
 }
-

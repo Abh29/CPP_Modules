@@ -1,5 +1,5 @@
 #first parts 
-SRC := main.cpp span.cpp
+SRC := main.cpp
 
 CC = c++
 
@@ -12,11 +12,11 @@ VALGFLGS = --vgdb=full \
          --verbose 
          #--log-file=valgrind-out.txt
 
-HEADERs = span.hpp
+HEADERs = mutantStack.hpp
 
 OBJ := $(SRC:%.cpp=%.o)
 
-NAME = span
+NAME = mutantStack
 
 %.o : %.cpp
 	@echo "compiling ..."
